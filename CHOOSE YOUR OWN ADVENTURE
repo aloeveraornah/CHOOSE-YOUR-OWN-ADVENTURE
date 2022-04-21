@@ -1,0 +1,128 @@
+from PIL import Image #this allows for images to be imported from files
+forest = Image.open("/Users/chrispark/Downloads/forest.jpeg")
+water = Image.open("/Users/chrispark/Downloads/river.jpeg")
+monster = Image.open("/Users/chrispark/Downloads/minotaur.jpeg")
+animal = Image.open("/Users/chrispark/Downloads/bear.jpeg")
+
+def start(): #starting path of the game, this path will offer two more paths leading to the second paths
+    forest.show() #this shows the image of the forest
+    #line below asks the user for their first choice of action
+    paths = input("\nYou find yourself stranded in the middle of a foggy forest and you need to return home. \
+It is very difficult to make sight of your surroundings, yet you stumble across two separating paths. Do you \
+'A' go left or 'B' go right?\n ").upper()
+    if paths == "A": #if user enters A, no matter the case, it will call a second path function 'choice_left()'
+        choice_left()
+    elif paths == "B": #if user enters B, no matter the case, it will call a second path function 'choice_right()'
+        choice_right()
+    else: #if user enters something other than 'A' or 'B' the user will automatically lose
+        print("\nYou decide to go neither ways, unfortunately, you end up falling in a pond and drown. You lose\n ")
+        quit()
+
+def choice_left(): #possible second path of the game, this path will offer two more paths leading to the third paths
+    water.show() #this shows the image of the river
+    #line below asks the user for their second possible choice of action
+    river = input("\nAfter travelling down the left path, you find yourself approaching a large lake. It's still very \
+foggy, but you manage to discover a boat by the surface. You hear screams on the other side of the lake, however you \
+also hear panting noises just behind you. Do you 'A' move forward via the boat or 'B' stay behind.\n ").upper()
+    if river == "A": #if user enters A, no matter the case, it will call a third path function 'choice_forward()'
+        choice_forward()
+    elif river == "B": #if user enters B, no matter the case, it will call a third path function 'choice_stay()'
+        choice_stay()
+    else: #if user enters something other than 'A' or 'B' the user will automatically lose
+        print("\nYou decide to neither ways, unfortunately, a horde of hornets ambush and sting you to your demise. \
+You lose.\n ")
+        quit()
+
+def choice_right(): #possible second path of the game, this path will offer two more paths leading to the third paths
+    #line below asks the user for their second possible choice of action
+    hill = input("\nAfter travelling down the right path, you find yourself in discovery of what appears to be \
+a hill that slants upwards. You travel up the hill, and along the way you find yourself in front of a dark cave. \
+Driven out of curiosity, you feel enticed to wander in. Do you 'A' wander in or 'B' keep moving up the hill.\n ").upper()
+    if hill == "A": #if user enters A, no matter the case, it will call a third path function 'choice_wander()'
+        choice_wander()
+    elif hill == "B": #if user enters B, no matter the case, it will call a third path function 'choice_keep()'
+        choice_keep() 
+    else: #if user enters something other than 'A' or 'B' the user will automatically lose
+        print("\nYou decide to go neither ways, unfortunately, a large boulder tumbles down and bashes into your body \
+leaving you dead as you roll down the hill. You lose\n ")
+        quit()
+
+def choice_forward(): #possible third path of the game, this path will offer two more paths
+    monster.show() #this shows the image of a minotaur
+    #line below asks the user for their third possible choice of action
+    minotaur = input("\nYou arrive to the other side of the lake's shore, but to your dismay, the screaming noise \
+belonged to a towering and horrifying minotaur. However, beyond the minotaur, a man-made road is in your sight \
+that could potentially lead you home. Do you 'A' fight and conquer the minotaur or 'B' make an attempt to escape.\n ").upper()
+    if minotaur == "A": #if user enters A, no matter the case, it will call a final path function 'choice_fight()'
+        choice_fight()
+    elif minotaur == "B": #if user enters B, no matter the case, it will call a final path function 'choice_escape()'
+        choice_escape()
+    else: #if user enters something other than 'A' or 'B' the user will automatically lose
+        print("\nYou decide to go neither ways, unfortunately, you slip and fall on your face and become unconscious.\n ")
+        quit()
+
+def choice_stay(): #possible third path of the game, user will win at this path
+    print("\nYou decide to stick around despite the risk of what the panting noises could mean. Turns out, \
+an explorer rushes over and speaks to you. He seems to be tired from running. He tells you that he was trying to reach \
+you for quite some time now and offers you a route to go home.\n")
+    print("\nCongratulations, you manage to make it home safely and soundly.\n ")
+    quit()
+
+def choice_wander(): #possible third path of the game, this path will offer two more paths
+    animal.show() #this shows the image of the bear
+    #line below asks the user for their third possible choice of action
+    bear = input("\nYou choose to wander into the cave. Inside, you find all sorts of food reserves and you begin to wonder \
+if there are other people inhabiting the cave. Suddenly, from behind you, a bear approaches from the exit. Near you, there is \
+a long piece of bone that could be utilized as a weapon. Do you, 'A' attack the bear or 'B' try to run away.\n ").upper()
+    if bear == "A": #if user enters A, no matter the case, it will call a final path function 'choice_attack()'
+        choice_attack()
+    elif bear == "B": #if user enters B, no matter the case, it will call a final path function 'choice_run()'
+        choice_run()
+    else: #if user enters something other than 'A' or 'B' the user will automatically lose
+        print("\nYou decide to go neither ways, unfortunately, a stalagmite crashes on your head and you fall unconscious \
+You lose.\n ")
+        quit()
+
+def choice_keep(): #possible third path of the game, user will lose at this path
+    print("\nYou continue travelling up the path and without warning you run into a figure in all black. \
+The figure then mutters, 'You have travelled up too far, you will be rebuked by my blade.' The figure then slashes you with \
+his sword and you bleed out and die. You lose.\n ") 
+    quit()
+
+def choice_fight(): #possible final path of the game, user will win at this path
+    print("\nWith your bare fists, you choose to take on the mighty minotaur. The minotaur rushes over and \
+with precise instincts and timing, you jab the minotaur in the eye. The minotaur is weaker than it appears. \
+With adrenaline coursing through your veins, you feel a primitive instinct to kill. You take the minotaur and you \
+choke it out until it dies. The minotaur whispers, 'You have defeated me, for this, you will be granted one wish.' \
+You wish to go home.\n ")
+    print("\nCongratulations, you manage to make it home safely and soundly.\n ")
+    quit()
+
+def choice_escape(): #possible final path of the game, user will lose at this path
+    print("\nYou rush over to the road and you take two looks to your left and your right. You hear the minotaur roaring \
+and you take a sudden look back. You lose your senses out of fear and don't realize that a car is coming towards you. \
+You get hit by the car and you bleed out and die. You lose.\n ")
+    quit()
+
+def choice_attack(): #possible final path of the game, user will lose at this path
+    print("\nWith bloodlust, you lunge at the bear. The bear swipes his paw at your chest and you get absolutely \
+destroyed. You lose.\n ")
+    quit()
+
+def choice_run(): #possible final path of the game, user will lose at this path
+    print("\nYou try to run past the bear. The bear swipes his paw at your chest and you get absolutely \
+destroyed. q.\n")
+    quit()
+
+while True: #this while loop will not end until the user enters a valid name 
+    name = input("\nGreeting! Welcome to Choose Your Own Adventure! What is your name?\n ").upper()
+    #the if statement below assures that a number cannot be inputed as an answer for a name
+    if "1" in name or "2" in name or "3" in name or "4" in name or "5" in name \
+    or "6" in name or "7" in name or "8" in name or "9" in name or "0" in name: 
+        print("\nNames do not contain numbers! Enter your name in letters please!\n")
+        continue
+    else:
+        break
+        
+print("Then " + name + " it is! Now, let us embark on a great journey!")
+start() #this calls the function that begins the game of possible paths
