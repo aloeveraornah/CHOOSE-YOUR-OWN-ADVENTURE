@@ -1,8 +1,8 @@
 from PIL import Image #this allows for images to be imported from files
-forest = Image.open("/Users/chrispark/Downloads/forest.jpeg")
-water = Image.open("/Users/chrispark/Downloads/river.jpeg")
-monster = Image.open("/Users/chrispark/Downloads/minotaur.jpeg")
-animal = Image.open("/Users/chrispark/Downloads/bear.jpeg")
+forest = Image.open("forest.jpeg")
+water = Image.open("river.jpeg")
+monster = Image.open("minotaur.jpeg")
+animal = Image.open("bear.jpeg")
 
 def start(): #starting path of the game, this path will offer two more paths leading to the second paths
     forest.show() #this shows the image of the forest
